@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\faks\\web2\\ProjekatL\\proj\\projBack\\kursBack\\projBack.csproj": {}
+    "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\projBack.csproj": {}
   },
   "projects": {
-    "D:\\faks\\web2\\ProjekatL\\proj\\projBack\\kursBack\\projBack.csproj": {
+    "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\projBack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\faks\\web2\\ProjekatL\\proj\\projBack\\kursBack\\projBack.csproj",
+        "projectUniqueName": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\projBack.csproj",
         "projectName": "projBack",
-        "projectPath": "D:\\faks\\web2\\ProjekatL\\proj\\projBack\\kursBack\\projBack.csproj",
+        "projectPath": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\projBack.csproj",
         "packagesPath": "C:\\Users\\korisnik\\.nuget\\packages\\",
-        "outputPath": "D:\\faks\\web2\\ProjekatL\\proj\\projBack\\kursBack\\obj\\",
+        "outputPath": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,6 +58,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

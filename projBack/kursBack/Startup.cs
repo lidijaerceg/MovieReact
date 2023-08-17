@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using projBack.APIBehavior;
 using projBack.Filters;
+using projBack.Helpers;
 
 namespace projBack
 {
@@ -32,6 +33,8 @@ namespace projBack
             });
 
             services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<IFileStorageService, InAppStorageService>();
+            services.AddHttpContextAccessor();
 
             services.AddControllers(options =>
             {
@@ -61,6 +64,8 @@ namespace projBack
             }
 
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
 
             app.UseRouting();
 

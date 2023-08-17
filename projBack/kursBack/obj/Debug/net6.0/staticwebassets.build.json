@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "CyR7dcLRqi93f+OPknUYPWdihPd58ScZaLPy/yr4hac=",
+  "Hash": "+Jmwhas5ox1aYSq2TXdskNM33Y0QDdd0Q1Oqc9+gyIg=",
   "Source": "projBack",
   "BasePath": "_content/projBack",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "projBack\\wwwroot",
+      "Source": "projBack",
+      "ContentRoot": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\wwwroot\\",
+      "BasePath": "_content/projBack",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }
