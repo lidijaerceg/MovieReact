@@ -1,6 +1,6 @@
-export default function DisplayErrors(props: displayErrorProps){
-    const style = {color:'red'};
-    return(
+export default function DisplayErrors(props: displayErrorsProps){
+    const style = {color: 'red'};
+    return (
         <>
             {props.errors ? <ul style={style}>
                 {props.errors.map((error, index) => <li key={index}>{error}</li>)}
@@ -9,6 +9,6 @@ export default function DisplayErrors(props: displayErrorProps){
     )
 }
 
-interface displayErrorProps{
+interface displayErrorsProps{
     errors?: string[];
 }

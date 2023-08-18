@@ -9,30 +9,31 @@ namespace projBack.Filters
         public void OnActionExecuted(ActionExecutedContext context)
         {
             var result = context.Result as IStatusCodeActionResult;
-            if(result == null)
+            if (result == null)
             {
                 return;
             }
-            
+
             var statusCode = result.StatusCode;
-            if(statusCode == 400)
+            if (statusCode == 400)
             {
                 var response = new List<string>();
                 var badRequestObjectResult = context.Result as BadRequestObjectResult;
-                if(badRequestObjectResult.Value is string)
+                if (badRequestObjectResult.Value is string)
                 {
                     response.Add(badRequestObjectResult.Value.ToString());
                 }
                 else
                 {
-                    foreach(var key in context.ModelState.Keys)
+                    foreach (var key in context.ModelState.Keys)
                     {
-                        foreach(var error in context.ModelState[key].Errors)
+                        foreach (var error in context.ModelState[key].Errors)
                         {
                             response.Add($"{key}: {error.ErrorMessage}");
                         }
                     }
                 }
+
                 context.Result = new BadRequestObjectResult(response);
             }
         }

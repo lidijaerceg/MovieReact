@@ -14,6 +14,24 @@ namespace projBack.Helpers
             CreateMap<MovieCreationDTO, Movie>()
                .ForMember(x => x.Poster, options => options.Ignore())
                .ForMember(x => x.MoviesGenres, options => options.MapFrom(MapMoviesGenres));
+
+            CreateMap<Movie, MovieDTO>()
+              .ForMember(x => x.Genres, options => options.MapFrom(MapMoviesGenres));
+        }
+
+        private List<GenreDTO> MapMoviesGenres(Movie movie, MovieDTO moviedto)
+        {
+            var result = new List<GenreDTO>();
+
+            if (movie.MoviesGenres != null)
+            {
+                foreach (var genre in movie.MoviesGenres)
+                {
+                    result.Add(new GenreDTO() { Id = genre.GenreId, Name = genre.Genre.Name });
+                }
+            }
+
+            return result;
         }
 
         private List<MoviesGenres> MapMoviesGenres(MovieCreationDTO movieCreationDTO, Movie movie)

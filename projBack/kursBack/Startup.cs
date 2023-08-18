@@ -41,6 +41,7 @@ namespace projBack
                 options.Filters.Add(typeof(MyExceptionFilter));
                 options.Filters.Add(typeof(ParseBadRequest));
             }).ConfigureApiBehaviorOptions(BadRequestBehavior.Parse);
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
 
             services.AddSwaggerGen(c =>
