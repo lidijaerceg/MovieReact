@@ -24,6 +24,7 @@ export default function LandingPage() {
         loadData();
       }}
     >
+
       <h3>Movies</h3>
       <MoviesList movies={movies.movie} />
     </AlertContext.Provider>

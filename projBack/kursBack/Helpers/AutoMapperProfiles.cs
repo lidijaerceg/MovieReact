@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using projBack.DTOs;
 using projBack.Entities;
 
@@ -17,6 +18,8 @@ namespace projBack.Helpers
 
             CreateMap<Movie, MovieDTO>()
               .ForMember(x => x.Genres, options => options.MapFrom(MapMoviesGenres));
+
+            CreateMap<IdentityUser, UserDTO>();
         }
 
         private List<GenreDTO> MapMoviesGenres(Movie movie, MovieDTO moviedto)

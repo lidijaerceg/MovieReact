@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -7,16 +9,18 @@ using projBack.Entities;
 using projBack.Helpers;
 
 namespace projBack.Controllers
-{
+{ 
     [Route("api/genres")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
     public class GenresController: ControllerBase
     {
         private readonly ILogger<GenresController> logger;
         private readonly ApplicationDbContext context;
         private readonly IMapper mapper;
 
-        public GenresController(ILogger<GenresController> logger, ApplicationDbContext context,
+        public GenresController(ILogger<GenresController> logger,
+            ApplicationDbContext context,
             IMapper mapper)
         {
             this.logger = logger;
@@ -29,19 +33,17 @@ namespace projBack.Controllers
         {
             var queryable = context.Genres.AsQueryable();
             await HttpContext.InsertarametersPaginationInHeader(queryable);
-
-            var genres = await queryable.OrderBy(x=> x.Name).Paginate(paginationDTO).ToListAsync();
-
+            var genres = await queryable.OrderBy(x => x.Name).Paginate(paginationDTO).ToListAsync();
             return mapper.Map<List<GenreDTO>>(genres);
         }
 
         [HttpGet("all")] // api/genres
+        [AllowAnonymous]
         public async Task<ActionResult<List<GenreDTO>>> Get()
         {
             var genres = await context.Genres.OrderBy(x => x.Name).ToListAsync();
             return mapper.Map<List<GenreDTO>>(genres);
         }
-
 
         [HttpGet("{Id:int}")]
         public async Task<ActionResult<GenreDTO>> Get(int Id)
@@ -60,13 +62,13 @@ namespace projBack.Controllers
         public async Task<ActionResult> Post([FromBody] GenreCreationDTO genreCreationDTO)
         {
             var genre = mapper.Map<Genre>(genreCreationDTO);
-            context.Genres.Add(genre);
+            context.Add(genre);
             await context.SaveChangesAsync();
             return NoContent();
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Put(int id,[FromBody] GenreCreationDTO genreCreationDTO)
+        public async Task<ActionResult> Put(int id, [FromBody] GenreCreationDTO genreCreationDTO)
         {
             var genre = await context.Genres.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -77,7 +79,6 @@ namespace projBack.Controllers
 
             genre = mapper.Map(genreCreationDTO, genre);
             await context.SaveChangesAsync();
-
             return NoContent();
         }
 

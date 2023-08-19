@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ezPoxEEwTw+yG6m83ahDBFFRs0FAWul25s0waRT9SOQ=",
+  "Hash": "8WeIf0z2t61IWhEhoNWyzWw82Tn34JddAmfXAmpRn+Q=",
   "Source": "projBack",
   "BasePath": "_content/projBack",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\movies\\83c8a2c3-ceb7-4941-a041-b788dbeac042.jpg"
+    },
+    {
+      "Identity": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\wwwroot\\movies\\dd3a2e79-d6ff-40be-8f8e-6c38f293efd3.jpg",
+      "SourceId": "projBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\wwwroot\\",
+      "BasePath": "_content/projBack",
+      "RelativePath": "movies/dd3a2e79-d6ff-40be-8f8e-6c38f293efd3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\movies\\dd3a2e79-d6ff-40be-8f8e-6c38f293efd3.jpg"
     },
     {
       "Identity": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\wwwroot\\movies\\e17377fd-783b-4275-b714-346c110a4cf9.jpg",
