@@ -11,5 +11,6 @@ namespace projBack.Entities
         public string Trailer { get; set; }
         public string Poster { get; set; }
         public List<MoviesGenres> MoviesGenres { get; set; }
+        public string UserId { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import {authenticationResponse, claim} from './auth.model';
 
 const tokenKey = 'token';
@@ -10,7 +11,7 @@ export function saveToken(authData: authenticationResponse){
 
 export function getClaims(): claim[]{
     const token = localStorage.getItem(tokenKey);
-
+    
     if (!token){
         return [];
     }

@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import Authorized from "./auth/Authorized";
 import Button from "./utils/Button";
 import { logout } from "./auth/handleJWT";
@@ -9,6 +9,14 @@ export default function Menu() {
 
   const {update, claims} = useContext(AuthenticationContext);
 
+  const history = useHistory();
+  
+  
+  const handleLogout = () => {
+      logout();
+      history.push('/'); // Redirect to the homepage
+    };
+  
   function getUserEmail(): string {
     return claims.filter(x=> x.name === "email")[0]?.value;
   }
@@ -29,8 +37,22 @@ export default function Menu() {
                 Filter Movies
               </NavLink>
             </li>
+            <Authorized 
+              role="salesperson"
+              authorized={
+                <>
+               
+                <li className="nav-item">
+                    <NavLink className="nav-link" to="/movies/create">
+                      Create a Movie
+                    </NavLink>
+                  </li>
+                  
+                </>
+              }
+            />
             <Authorized
-              role="admin"
+              role="admin" 
               authorized={
                 <>
                   <li className="nav-item">
@@ -48,11 +70,11 @@ export default function Menu() {
                       menjaj posle
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <NavLink className="nav-link" to="/movies/create">
                       Create a Movie
                     </NavLink>
-                  </li>
+                  </li> */}
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/users">
                       Users
@@ -66,9 +88,10 @@ export default function Menu() {
             <Authorized
               authorized={
                 <>
-                  <span className="nav-link">Hello, {getUserEmail()}</span>
+                  <Link to='/editProfile' className="nav-link">Hello, {getUserEmail()}</Link>
                   <Button className="nav-link btn btn-link" onClick={() =>{
                     logout();
+                    handleLogout();
                     update([]);
                   }}>
                     Log out

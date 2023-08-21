@@ -6,12 +6,13 @@ using Microsoft.EntityFrameworkCore;
 using projBack.DTOs;
 using projBack.Entities;
 using projBack.Helpers;
+using System.Security.Claims;
 
 namespace projBack.Controllers
 {
     [Route("api/movies")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsSalesperson")]
     public class MoviesController : ControllerBase
     {
         private readonly ApplicationDbContext context;
@@ -105,6 +106,9 @@ namespace projBack.Controllers
         {
             var movie = mapper.Map<Movie>(movieCreationDTO);
 
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            movie.UserId = userId;
+
             if (movieCreationDTO.Poster != null)
             {
                 movie.Poster = await fileStorageService.SaveFile(container, movieCreationDTO.Poster);
@@ -151,6 +155,12 @@ namespace projBack.Controllers
                 return NotFound();
             }
 
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (movie.UserId != userId)
+            {
+                return Forbid(); // Return a 403 Forbidden response if not the owner
+            }
+
             movie = mapper.Map(movieCreationDTO, movie);
 
             if(movieCreationDTO.Poster != null)
@@ -167,11 +177,18 @@ namespace projBack.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delte(int id)
         {
+
             var movie = await context.Movies.FirstOrDefaultAsync(x => x.Id == id);
             
             if(movie == null)
             {
                 return NotFound();
+            }
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if(movie.UserId != userId)
+            {
+                return Forbid();
             }
 
             context.Remove(movie);

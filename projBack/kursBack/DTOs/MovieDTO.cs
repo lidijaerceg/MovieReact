@@ -11,6 +11,7 @@ namespace projBack.DTOs
         public string Poster { get; set; }
 
         public List<GenreDTO> Genres { get; set; }
+        public string UserId { get; set; }
 
     }
 }

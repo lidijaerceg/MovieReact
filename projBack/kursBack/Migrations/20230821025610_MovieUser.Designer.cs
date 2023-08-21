@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using projBack;
 
@@ -11,9 +12,11 @@ using projBack;
 namespace projBack.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230821025610_MovieUser")]
+    partial class MovieUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -258,12 +261,27 @@ namespace projBack.Migrations
                     b.Property<string>("Trailer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("projBack.Entities.MovieUser", b =>
+                {
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("MovieId", "UserId");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("MovieUsers");
                 });
 
             modelBuilder.Entity("projBack.Entities.MoviesGenres", b =>
@@ -332,6 +350,23 @@ namespace projBack.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("projBack.Entities.MovieUser", b =>
+                {
+                    b.HasOne("projBack.Entities.Movie", "Movie")
+                        .WithMany("MovieUsers")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("projBack.Entities.MoviesGenres", b =>
                 {
                     b.HasOne("projBack.Entities.Genre", "Genre")
@@ -353,6 +388,8 @@ namespace projBack.Migrations
 
             modelBuilder.Entity("projBack.Entities.Movie", b =>
                 {
+                    b.Navigation("MovieUsers");
+
                     b.Navigation("MoviesGenres");
                 });
 #pragma warning restore 612, 618

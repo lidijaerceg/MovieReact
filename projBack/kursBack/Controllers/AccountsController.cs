@@ -70,11 +70,29 @@ namespace MoviesAPI.Controllers
             return NoContent();
         }
 
+        [HttpPost("makeSalesperson")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
+        public async Task<ActionResult> MakeSalesperson([FromBody] string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            await userManager.AddClaimAsync(user, new Claim("role", "salesperson"));
+            return NoContent();
+        }
+
+        [HttpPost("removeSalesperson")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
+        public async Task<ActionResult> RemovSalesPerson([FromBody] string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            await userManager.RemoveClaimAsync(user, new Claim("role", "salesperson"));
+            return NoContent();
+        }
+
         [HttpPost("create")]
         public async Task<ActionResult<AuthenticationResponse>> Create(
             [FromBody] UserCredentials userCredentials)
         {
-            var user = new IdentityUser { UserName = userCredentials.Email, Email = userCredentials.Email };
+            var user = new IdentityUser { UserName = userCredentials.Username, Email = userCredentials.Email };
             var result = await userManager.CreateAsync(user, userCredentials.Password);
 
             if (result.Succeeded)

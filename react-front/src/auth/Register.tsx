@@ -1,9 +1,9 @@
 import axios from "axios";
 import { urlAccounts } from "../endpoints";
-import { authenticationResponse, userCredentials } from "./auth.model";
+import { authenticationResponse, userCredentialsReg } from "./auth.model";
 import { useContext, useState } from "react";
 import DisplayErrors from "../utils/DisplayErrors";
-import AuthForm from "./AuthForm";
+import AuthForm from "./AuthFormReg";
 import { getClaims, saveToken } from "./handleJWT";
 import AuthenticationContext from "./AuthenticationContext";
 import { useHistory } from "react-router-dom";
@@ -14,7 +14,7 @@ export default function Register(){
     const{update} = useContext(AuthenticationContext);
     const history = useHistory();
 
-    async function register(credentials: userCredentials){
+    async function register(credentials: userCredentialsReg){
         try{
             setErrors([]);
             const response = await axios
@@ -32,8 +32,8 @@ export default function Register(){
         <>
             <h3>Register</h3>
             <DisplayErrors errors={errors}/>
-            <AuthForm 
-                model={{email: '', password: ''}}
+            <AuthForm
+                model={{username: '',email: '', password: '', name: ''}}
                 onSubmit={async values => await register(values)}
             />
         </>

@@ -122,6 +122,7 @@ D:\faks\web2\ProjekatL\proj\projBack\kursBack\bin\Debug\net6.0\AutoMapper.dll
 D:\faks\web2\ProjekatL\proj\projBack\kursBack\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\appsettings.Development.json
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\appsettings.json
+D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\projBack.staticwebassets.runtime.json
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\projBack.exe
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\projBack.deps.json
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\projBack.runtimeconfig.json
@@ -133,6 +134,9 @@ D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Az
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Azure.Identity.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Humanizer.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -146,6 +150,8 @@ D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Mi
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
@@ -162,6 +168,7 @@ D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Mi
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Mono.TextTemplating.dll
+D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -210,10 +217,10 @@ D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\obj\Debug\net6.0\re
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\obj\Debug\net6.0\projBack.pdb
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\obj\Debug\net6.0\projBack.genruntimeconfig.cache
 D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\obj\Debug\net6.0\ref\projBack.dll
-D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Newtonsoft.Json.dll
-D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\projBack.staticwebassets.runtime.json
-D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
-D:\faks\web2\ProjekatL\proj\PUSGS-Projekat\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+D:\faks\web2\ProjekatL\proj\projBack\kursBack\bin\Debug\net6.0\projBack.staticwebassets.runtime.json
+D:\faks\web2\ProjekatL\proj\projBack\kursBack\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\faks\web2\ProjekatL\proj\projBack\kursBack\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\faks\web2\ProjekatL\proj\projBack\kursBack\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\faks\web2\ProjekatL\proj\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+D:\faks\web2\ProjekatL\proj\projBack\kursBack\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+D:\faks\web2\ProjekatL\proj\projBack\kursBack\bin\Debug\net6.0\Newtonsoft.Json.dll

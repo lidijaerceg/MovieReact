@@ -23,6 +23,10 @@ function App() {
     return claims.findIndex(claim => claim.name === 'role' && claim.value === 'admin') > -1;
   }
 
+  function isSalesperson(){
+    return claims.findIndex(claim => claim.name === 'role' && claim.value === 'salesperson') > -1;
+  }
+
   return (
     <BrowserRouter>
       <AuthenticationContext.Provider value={{ claims, update: setClaims }}>
@@ -31,12 +35,18 @@ function App() {
           <Switch>
             {routes.map((route) => (
               <Route key={route.path} path={route.path} exact={route.exact}>
-                {route.isAdmin && !isAdmin() ? 
+                {route.isAdmin && !isAdmin() ? (
                   <>You are not allowed to see this page!</>
-                 : <route.component />}
+                ) : route.isSalesperson && !isSalesperson() ? (
+                  <>You are not allowed to see this page!</>
+                ) : (
+                  <route.component />
+                )}
               </Route>
+              
             ))}
           </Switch>
+          
         </div>
         <footer className="bd-footer py-5 mt-5 bg-light">
           <div className="container">

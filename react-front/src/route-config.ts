@@ -1,6 +1,7 @@
 import CreateActor from "./actors/CreateActors";
 import EditActor from "./actors/EditActor";
 import IndexActors from "./actors/IndexActors";
+import EditUser from "./auth/EditUser";
 import IndexUsers from "./auth/IndexUsers";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
@@ -31,13 +32,14 @@ const routes = [
     {path: '/movietheaters/edit/:id(\\d+)', component: EditMovieTheaters, isAdmin: true},
 
     {path: '/movies/filter', component: FilterMovies},
-    {path: '/movies/create', component: CreateMovie, isAdmin: true},
-    {path: '/movies/edit/:id(\\d+)', component: EditMovie, isAdmin: true},
+    {path: '/movies/create', component: CreateMovie, isSalesperson: true},
+    {path: '/movies/edit/:id(\\d+)', component: EditMovie,  isSalesperson: true},
     {path: '/movie/:id(\\d+)', component: MovieDetails},
 
     {path: '/register', component: Register},
     {path: '/login', component: Login},
     {path: '/users', component: IndexUsers, isAdmin: true},
+    {path: '/editProfile/:id', component: EditUser},
 
     {path: '/', component: LandingPage, exact: true},
     {path: '*', component: RedirectToLandingPage}

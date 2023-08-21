@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using projBack.Entities;
 using System.Diagnostics.CodeAnalysis;
@@ -7,7 +8,8 @@ namespace projBack
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext([NotNullAttribute] DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
         {
         }
 
@@ -17,6 +19,8 @@ namespace projBack
             modelBuilder.Entity<MoviesGenres>()
                 .HasKey(x => new { x.GenreId, x.MovieId });
 
+            
+
             base.OnModelCreating(modelBuilder);
         }
 
@@ -24,5 +28,7 @@ namespace projBack
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<MoviesGenres> MoviesGenres { get; set; }
+
+        //public DbSet<UserCredentialsRegistration> UserCredentialsRegistration { get; set; }
     }
 }

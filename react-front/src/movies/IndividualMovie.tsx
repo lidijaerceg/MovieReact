@@ -28,7 +28,7 @@ export default function IndividualMovie(props: movieDTO) {
         <Link to={buildLink()}>{props.title}</Link>
       </p>
       <Authorized
-        role="admin"
+        role="salesperson"
         authorized={
           <>
             <div>

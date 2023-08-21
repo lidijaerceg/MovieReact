@@ -1,4 +1,16 @@
+import { userCredentialsReg } from '../auth/auth.model';
 import { movieCreationDTO } from '../movies/movies.model';
+
+export function convertProfileToFormData(profile: userCredentialsReg){
+    const formData = new FormData();
+
+    formData.append('username', profile.username);
+
+    formData.append('email', profile.email);
+
+    formData.append('email', profile.email);
+
+}
 
 export function convertMovieToFormData(movie: movieCreationDTO){
     const formData = new FormData();

@@ -28,6 +28,26 @@ export default function IndexUsers(){
         });
     }
 
+    async function makeSalesperson(id: string){
+        await doSalesperson(`${urlAccounts}/makeSalesperson`, id);
+    }
+
+    async function removeSalesperson(id: string){
+        await doSalesperson(`${urlAccounts}/removeSalesperson`, id);
+    }
+
+    async function doSalesperson(url: string, id: string){
+        await axios.post(url, JSON.stringify(id), {
+            headers: {'Content-type': 'application/json'}
+        });
+
+        Swal.fire({
+            title: 'Success',
+            text: 'Operation finished correctly',
+            icon: 'success'
+        });
+    }
+
     return(
         <IndexEntity<userDTO>
             title="Users" url={`${urlAccounts}/listUsers`}
@@ -50,6 +70,19 @@ export default function IndexUsers(){
                                 onClick={()=> customConfirm(() => removeAdmin(user.id),
                                     `Do you wish to remove ${user.email} as an admin?`, 'Do it' )}
                             >Remove Admin</Button>
+
+
+
+                            <tr>
+                            <Button
+                                onClick={()=> customConfirm(() => makeSalesperson(user.id),
+                                    `Do you wish to make ${user.email} an salesperson?`, 'Do it' )}
+                            >Make Salesperson</Button>
+                            <Button className="btn btn-danger ms-2"
+                                onClick={()=> customConfirm(() => removeSalesperson(user.id),
+                                    `Do you wish to remove ${user.email} as an Salesperson?`, 'Do it' )}
+                            >Remove Salesperson</Button>
+                            </tr>
                         </td>
                         <td>
                             {user.email}

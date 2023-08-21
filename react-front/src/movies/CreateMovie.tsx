@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
-import { genreDTO } from "../genres/genres.model";
-import { movieTheaterDTO } from "../movieTheaters/movieTheater.model";
-import MovieForm from "./MovieForm";
 import axios, { AxiosResponse } from "axios";
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { urlMovies } from "../endpoints";
-import { movieCreationDTO, moviePostGetDTO } from "./movies.model";
+import { genreDTO } from "../genres/genres.model";
+import DisplayErrors from "../utils/DisplayErrors";
 import Loading from "../utils/Loading";
 import { convertMovieToFormData } from "../utils/formDataUtils";
-import { useHistory } from "react-router-dom";
-import DisplayErrors from "../utils/DisplayErrors";
+import MovieForm from "./MovieForm";
+import { movieCreationDTO, moviePostGetDTO } from "./movies.model";
 
 export default function CreateMovie(){
 

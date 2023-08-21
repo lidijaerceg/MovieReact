@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using projBack.APIBehavior;
+using projBack.Entities;
 using projBack.Filters;
 using projBack.Helpers;
 using System.IdentityModel.Tokens.Jwt;
@@ -61,6 +62,7 @@ namespace projBack
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("IsAdmin", policy => policy.RequireClaim("role", "admin"));
+                options.AddPolicy("IsSalesperson", policy => policy.RequireClaim("role", "salesperson"));
             });
 
 
