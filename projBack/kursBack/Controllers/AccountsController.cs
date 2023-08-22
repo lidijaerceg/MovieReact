@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using projBack.DTOs;
-using projBack.Helpers;
+using Org.BouncyCastle.Crypto.Generators;
 using projBack;
+using projBack.DTOs;
+using projBack.Entities;
+using projBack.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -28,18 +30,23 @@ namespace MoviesAPI.Controllers
         private readonly IConfiguration configuration;
         private readonly ApplicationDbContext context;
         private readonly IMapper mapper;
+        private readonly IFileStorageService fileStorageService;
+        private string container = "users";
+
 
         public AccountsController(UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             IConfiguration configuration,
             ApplicationDbContext context,
-            IMapper mapper)
+            IMapper mapper,
+            IFileStorageService fileStorageService)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.configuration = configuration;
             this.context = context;
             this.mapper = mapper;
+            this.fileStorageService = fileStorageService;
         }
 
         [HttpGet("listUsers")]
@@ -92,11 +99,32 @@ namespace MoviesAPI.Controllers
         public async Task<ActionResult<AuthenticationResponse>> Create(
             [FromBody] UserCredentials userCredentials)
         {
-            var user = new IdentityUser { UserName = userCredentials.Username, Email = userCredentials.Email };
+            var user = new IdentityUser { UserName = userCredentials.Email, Email = userCredentials.Email };
             var result = await userManager.CreateAsync(user, userCredentials.Password);
 
             if (result.Succeeded)
             {
+                var userId = user.Id;
+
+                string hashedPassword = user.PasswordHash;
+
+
+                var ids = new PersonalInformation
+                {
+                    UserId = userId,
+                    Name = userCredentials.Name,
+                    Lastname = userCredentials.Lastname,
+                    Address = userCredentials.Address,
+                    DateOfBirth = userCredentials.DateOfBirth,
+                    Email = userCredentials.Email,
+                    Username = userCredentials.Username,
+                    Password = hashedPassword
+                };
+
+                context.PersonalInformation.Add(ids);
+                await context.SaveChangesAsync();
+
+
                 return await BuildToken(userCredentials);
             }
             else
@@ -121,6 +149,68 @@ namespace MoviesAPI.Controllers
                 return BadRequest("Incorrect Login");
             }
         }
+
+        [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<ActionResult<UserCredentials>> GetPersonalInformation(int id)
+        {
+            // Retrieve the personal information for the specified id from the database
+            var personalInformation = await context.PersonalInformation
+                .FirstOrDefaultAsync(pi => pi.Id == id);
+
+            if (personalInformation == null)
+            {
+                // If no personal information is found, return a NotFound response
+                return NotFound();
+            }
+
+            // Map the personalInformation entity to a DTO
+            var personalInformationDTO = mapper.Map<UserCredentials>(personalInformation);
+
+            return personalInformationDTO;
+        }
+
+        [HttpGet("putget/{id:int}")]
+        public async Task<ActionResult<EditProfileDTO>> PutGet(int id)
+        {
+            var userActionResult = await GetPersonalInformation(id);
+            if (userActionResult.Result is NotFoundResult)
+            {
+                return NotFound();
+            }
+
+            var user = userActionResult.Value;
+            
+            var response = new EditProfileDTO
+            {
+                Profile = user
+        };
+           
+            return response;
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult> Put(int id, [FromForm] UserCredentials userCredentials)
+        {
+            var user = await context.PersonalInformation.FirstOrDefaultAsync(x => x.Id == id);
+
+            if(user == null)
+            {
+                return NotFound();
+            }
+
+            user = mapper.Map(userCredentials, user);
+            
+            if(userCredentials.Picture != null)
+            {
+                user.Picture = await fileStorageService.EditFile(container, userCredentials.Picture,
+                    user.Picture);
+            }
+
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
+
 
         private async Task<AuthenticationResponse> BuildToken(UserCredentials userCredentials)
         {

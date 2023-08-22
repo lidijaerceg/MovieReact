@@ -6,9 +6,27 @@ export function convertProfileToFormData(profile: userCredentialsReg){
 
     formData.append('username', profile.username);
 
-    formData.append('email', profile.email);
+   
 
-    formData.append('email', profile.email);
+    if (profile.picture){
+        formData.append('picture', profile.picture);
+    }
+
+    if (profile.name){
+        formData.append('name', profile.name);
+    }
+
+    if (profile.lastname){
+        formData.append('lastname', profile.lastname);
+    }
+
+    if (profile.address){
+        formData.append('address', profile.address);
+    }
+
+    if (profile.dateOfBirth){
+        formData.append('dateOfBirth', formatDate(profile.dateOfBirth));
+    }
 
 }
 

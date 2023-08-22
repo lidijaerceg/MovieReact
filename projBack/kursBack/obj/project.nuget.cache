@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QlF/D7OVbxibk8YgcpReUx7u1upURmYeAwvS22UsVWcccVZrAvD7kD1RUFBf5d1HHpGtoF5Lv6Ihe5ibxn5/ww==",
+  "dgSpecHash": "ItKxFmLHG/bvzDEgYXsTmH3BBYWpcpCCLw/6hbZLTFHNXDedcuUtrq2NzZR/OlEnoKrtQ01pRSEgLOw8vNNhLQ==",
   "success": true,
   "projectFilePath": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\projBack.csproj",
   "expectedPackageFiles": [
@@ -53,6 +53,7 @@
     "C:\\Users\\korisnik\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\korisnik\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\korisnik\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\korisnik\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\korisnik\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\korisnik\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\korisnik\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

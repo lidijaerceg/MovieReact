@@ -39,7 +39,7 @@ const routes = [
     {path: '/register', component: Register},
     {path: '/login', component: Login},
     {path: '/users', component: IndexUsers, isAdmin: true},
-    {path: '/editProfile/:id', component: EditUser},
+    {path: '/editProfile/:id(\\d+)', component: EditUser},
 
     {path: '/', component: LandingPage, exact: true},
     {path: '*', component: RedirectToLandingPage}

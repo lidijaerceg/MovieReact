@@ -9,8 +9,8 @@ export interface userCredentials{
 }
 
 export interface userCredentialsReg{
-    email: string;
-    password: string;
+    email?: string;
+    password?: string;
     username: string;
     name?: string;
     lastname?: string;
@@ -22,7 +22,7 @@ export interface userCredentialsReg{
 }
 
 export interface editUserDTO{
-    profile: userCredentialsReg;
+    profile: userDTO;
 
 }
 
@@ -32,6 +32,14 @@ export interface authenticationResponse{
 }
 
 export interface userDTO{
-    id: string;
+    id: int;
     email: string;
+    password: string;
+    username: string;
+    name?: string;
+    lastname?: string;
+    dateOfBirth: Date;
+    address?: string;
+    picture?: File;
+    pictureURL?: string;
 }

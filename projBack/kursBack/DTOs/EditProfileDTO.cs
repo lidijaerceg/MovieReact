@@ -1,7 +1,9 @@
-﻿namespace projBack.DTOs
+﻿using projBack.Entities;
+
+namespace projBack.DTOs
 {
     public class EditProfileDTO
     {
-        public UserCredentialsReg Profile { get; set; }
+        public UserCredentials Profile { get; set; }
     }
 }

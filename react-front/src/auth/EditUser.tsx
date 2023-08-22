@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios"
 import { useEffect, useState } from "react"
 import { urlAccounts } from "../endpoints"
 import { useHistory, useParams } from "react-router-dom";
-import { editUserDTO, userCredentialsReg } from "./auth.model";
+import { editUserDTO, userCredentialsReg, userDTO } from "./auth.model";
 import DisplayErrors from "../utils/DisplayErrors";
 import EditForm from "./EditForm";
 import Loading from "../utils/Loading";
@@ -19,14 +19,17 @@ export default function EditUser(){
     useEffect(() => {
         axios.get(`${urlAccounts}/PutGet/${id}`)
             .then((response: AxiosResponse<editUserDTO>) =>{
-                const model: userCredentialsReg ={
-                    email: response.data.profile.email,
-                    password: response.data.profile.password,
-                    username: response.data.profile.password,
+                const model: userCredentialsReg = {
+                    name: response.data.profile.name,
+                    lastname: response.data.profile.lastname,
+                    username: response.data.profile.username,
+                    pictureURL: response.data.profile.pictureURL,
+                    address: response.data.profile.address,
+                    dateOfBirth: new Date(response.data.profile.dateOfBirth),
                 };
-
                 setProfile(model);
                 setEditProfile(response.data);
+
             })
     }, [id]);
 

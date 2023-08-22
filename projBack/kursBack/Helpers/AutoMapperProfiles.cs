@@ -20,6 +20,21 @@ namespace projBack.Helpers
               .ForMember(x => x.Genres, options => options.MapFrom(MapMoviesGenres));
 
             CreateMap<IdentityUser, UserDTO>();
+
+            CreateMap<PersonalInformation, UserCredentials>()
+            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.UserId))
+            .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.Lastname, opt => opt.MapFrom(src => src.Lastname))
+            .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
+            .ForMember(dest => dest.DateOfBirth, opt => opt.MapFrom(src => src.DateOfBirth))
+            .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password))
+            .ForMember(x => x.Picture, options => options.Ignore())
+            
+
+            
+            // Map other properties as needed
+            .ReverseMap(); // Optional, for two-way mapping
         }
 
         private List<GenreDTO> MapMoviesGenres(Movie movie, MovieDTO moviedto)

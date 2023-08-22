@@ -4,11 +4,17 @@ import Button from "./utils/Button";
 import { logout } from "./auth/handleJWT";
 import { useContext } from "react";
 import AuthenticationContext from "./auth/AuthenticationContext";
+import { editUserDTO, userDTO } from "./auth/auth.model";
+
 
 export default function Menu() {
 
   const {update, claims} = useContext(AuthenticationContext);
 
+  function edit(props: userDTO){
+  const buildLink = () => `/editProfile/${props.id}`;
+  }
+  
   const history = useHistory();
   
   
@@ -88,7 +94,8 @@ export default function Menu() {
             <Authorized
               authorized={
                 <>
-                  <Link to='/editProfile' className="nav-link">Hello, {getUserEmail()}</Link>
+                  
+                  <Link to={`/editUser`} className="nav-link">Hello, {getUserEmail()}</Link>
                   <Button className="nav-link btn btn-link" onClick={() =>{
                     logout();
                     handleLogout();

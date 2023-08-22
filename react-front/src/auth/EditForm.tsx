@@ -13,29 +13,29 @@ export default function EditForm(props: authFormProps){
             initialValues={props.model}
             onSubmit={props.onSubmit}
             validationSchema={Yup.object({
-                username: Yup.string().required('This field is required.'),
+                // username: Yup.string().required('This field is required.'),
                 // name: Yup.string().required('This field is required.'),
                 // lastname: Yup.string().required('This field is required.'),
                 // dateOfBirth: Yup.date().nullable().required('This field is required'),
-                // address: Yup.string().required('This field is required.'),
+                // address: Yup.string().required('This field is required.')
 
-                email: Yup.string().required('This field is required.')
-                    .email('You have to insert a valid email'),
-                password: Yup.string().required('This field is required.')
+                // email: Yup.string().required('This field is required.')
+                //     .email('You have to insert a valid email'),
+                // password: Yup.string().required('This field is required.')
             })}
            
         >
             {formikProps =>(
                 <Form>
                     <TextField displayName="Username" field="username"/>
-                    <TextField displayName="Email" field="email"/>
-                    <TextField displayName="Password" field="password" type="password"/>
-                    {/* <TextField displayName="Name" field="name"/>
+                     {/* <TextField displayName="Email" field="email"/>
+                    <TextField displayName="Password" field="password" type="password"/>  */}
+                    <TextField displayName="Name" field="name"/>
                     <TextField displayName="Lastname" field="lastname"/>
                     <DateField displayName="Date of birth" field="dateOfBirth" />
                     <TextField displayName="Address" field="address"/>
                     <ImageField displayName="Picture" field="picture"  
-                    imageURL = {props.model.pictureURL} />*/}
+                    imageURL = {props.model.pictureURL} />
 
                     <Button disabled={formikProps.isSubmitting} type="submit">Save changes</Button>
                     <Link className="btn btn-secondary" to="/">Cancel</Link>

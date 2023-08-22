@@ -7,6 +7,7 @@ import AuthForm from "./AuthFormReg";
 import { getClaims, saveToken } from "./handleJWT";
 import AuthenticationContext from "./AuthenticationContext";
 import { useHistory } from "react-router-dom";
+import AuthFormReg from "./AuthFormReg";
 
 export default function Register(){
 
@@ -32,8 +33,8 @@ export default function Register(){
         <>
             <h3>Register</h3>
             <DisplayErrors errors={errors}/>
-            <AuthForm
-                model={{username: '',email: '', password: '', name: ''}}
+            <AuthFormReg
+                model={{username: '',email: '', password: '', name: '', lastname: '', address: ''}}
                 onSubmit={async values => await register(values)}
             />
         </>
