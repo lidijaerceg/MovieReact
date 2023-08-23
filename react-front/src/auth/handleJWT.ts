@@ -15,6 +15,7 @@ export function getClaims(): claim[]{
     if (!token){
         return [];
     }
+    
 
     const expiration = localStorage.getItem(expirationKey)!;
     const expirationDate = new Date(expiration);
@@ -26,9 +27,15 @@ export function getClaims(): claim[]{
 
     const dataToken = JSON.parse(atob(token.split('.')[1]));
     const response: claim[] = [];
+
+    if(dataToken.hasOwnProperty('id')){
+        response.push({name: 'id', value: dataToken.id});
+    }
+
     for (const property in dataToken){
         response.push({name: property, value: dataToken[property]});
     }
+    
 
     return response;
 }

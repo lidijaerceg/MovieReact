@@ -4,6 +4,7 @@ import IndexActors from "./actors/IndexActors";
 import EditUser from "./auth/EditUser";
 import IndexUsers from "./auth/IndexUsers";
 import Login from "./auth/Login";
+import Profile from "./auth/Profile";
 import Register from "./auth/Register";
 import CreateGenre from "./genres/CreateGenre";
 import EditGenre from "./genres/EditGenre";
@@ -11,6 +12,7 @@ import IndexGenres from "./genres/IndexGenres";
 import CreateMovieTheaters from "./movieTheaters/CreateMovieTheaters";
 import EditMovieTheaters from "./movieTheaters/EditMovieTheaters";
 import IndexMovieTheater from "./movieTheaters/IndexMovieTheater";
+import BuyMovie from "./movies/BuyMovie";
 import CreateMovie from "./movies/CreateMovie";
 import EditMovie from "./movies/EditMovie";
 import FilterMovies from "./movies/FilterMovies";
@@ -35,6 +37,7 @@ const routes = [
     {path: '/movies/create', component: CreateMovie, isSalesperson: true},
     {path: '/movies/edit/:id(\\d+)', component: EditMovie,  isSalesperson: true},
     {path: '/movie/:id(\\d+)', component: MovieDetails},
+    {path: '/movie/buy/:id(\\d+)', component: BuyMovie},
 
     {path: '/register', component: Register},
     {path: '/login', component: Login},

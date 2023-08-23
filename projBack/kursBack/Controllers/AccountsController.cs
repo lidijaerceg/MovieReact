@@ -118,7 +118,8 @@ namespace MoviesAPI.Controllers
                     DateOfBirth = userCredentials.DateOfBirth,
                     Email = userCredentials.Email,
                     Username = userCredentials.Username,
-                    Password = hashedPassword
+                    Password = hashedPassword,
+                    Role = userCredentials.Role
                 };
 
                 context.PersonalInformation.Add(ids);
@@ -199,13 +200,39 @@ namespace MoviesAPI.Controllers
                 return NotFound();
             }
 
-            user = mapper.Map(userCredentials, user);
-            
-            if(userCredentials.Picture != null)
+            // user = mapper.Map(userCredentials, user);
+
+            if (!string.IsNullOrWhiteSpace(userCredentials.Name))
+            {
+                user.Name = userCredentials.Name;
+            }
+
+            if (!string.IsNullOrWhiteSpace(userCredentials.Lastname))
+            {
+                user.Lastname = userCredentials.Lastname;
+            }
+
+            if (!string.IsNullOrWhiteSpace(userCredentials.Username))
+            {
+                user.Username = userCredentials.Username;
+            }
+
+            if (!string.IsNullOrWhiteSpace(userCredentials.Address))
+            {
+                user.Address = userCredentials.Address;
+            }
+
+            if (userCredentials.Picture != null)
             {
                 user.Picture = await fileStorageService.EditFile(container, userCredentials.Picture,
                     user.Picture);
             }
+
+            if (userCredentials.DateOfBirth != null)
+            {
+                user.DateOfBirth = userCredentials.DateOfBirth;
+            }
+
 
             await context.SaveChangesAsync();
             return NoContent();

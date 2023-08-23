@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\movies\\5dd829c7-5bdd-4733-b8c3-f28557bedc31.jpg"
     },
     {
+      "Id": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\wwwroot\\movies\\6f9ffb9f-55c5-4e22-94d3-9cb97d8f4a93.jpg",
+      "PackagePath": "staticwebassets\\movies\\6f9ffb9f-55c5-4e22-94d3-9cb97d8f4a93.jpg"
+    },
+    {
       "Id": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\wwwroot\\movies\\83c8a2c3-ceb7-4941-a041-b788dbeac042.jpg",
       "PackagePath": "staticwebassets\\movies\\83c8a2c3-ceb7-4941-a041-b788dbeac042.jpg"
     },
@@ -15,6 +19,14 @@
     {
       "Id": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\wwwroot\\movies\\e17377fd-783b-4275-b714-346c110a4cf9.jpg",
       "PackagePath": "staticwebassets\\movies\\e17377fd-783b-4275-b714-346c110a4cf9.jpg"
+    },
+    {
+      "Id": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\wwwroot\\users\\367e8a73-a381-401a-881f-b3bf59e89bee.jpg",
+      "PackagePath": "staticwebassets\\users\\367e8a73-a381-401a-881f-b3bf59e89bee.jpg"
+    },
+    {
+      "Id": "D:\\faks\\web2\\ProjekatL\\proj\\PUSGS-Projekat\\projBack\\kursBack\\wwwroot\\users\\d0f3b5ce-9037-4e3b-abb0-87be744f5cf1.jpg",
+      "PackagePath": "staticwebassets\\users\\d0f3b5ce-9037-4e3b-abb0-87be744f5cf1.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.projBack.props",

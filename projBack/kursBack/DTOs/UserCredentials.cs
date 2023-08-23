@@ -19,8 +19,11 @@ namespace projBack.DTOs
         [NotMapped]
         public IFormFile Picture { get; set; }
         public string PictureURL { get; set; }
+        public string Role { get; set; }
+
 
         public DateTime DateOfBirth { get; set; }
+        [NotMapped]
         PersonalInformation PersonalInformation { get; set; }
     }
 }

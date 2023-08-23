@@ -1,4 +1,5 @@
 import { actorMovieDTO } from "../actors/actors.model";
+import { userDTO } from "../auth/auth.model";
 import { genreDTO } from "../genres/genres.model";
 
 export interface movieDTO {
@@ -8,6 +9,8 @@ export interface movieDTO {
     trailer: string;
     summary?: string;
     genres: genreDTO[];
+    price: number;
+    amount: number;   
 }
 
 export interface movieCreationDTO{
@@ -17,6 +20,8 @@ export interface movieCreationDTO{
     poster?: File;
     posterURL?: string;
     genresIds?: number[];
+    price: number;
+    amount: number;  
 }
 
 export interface landingPageDTO{

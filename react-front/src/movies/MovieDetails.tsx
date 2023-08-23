@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { movieDTO } from "./movies.model";
 import Loading from "../utils/Loading";
 import ReactMarkdown from "react-markdown";
+import Authorized from "../auth/Authorized";
 
 export default function MovieDetails() {
   const { id }: any = useParams();
@@ -34,7 +35,8 @@ export default function MovieDetails() {
 
   return movie ? (
     <div>
-      <h2>{movie.title}</h2>
+      <h2>{movie.title} </h2>
+      <h4>Price: {movie.price}$</h4>
       {movie.genres?.map((genre) => (
         <Link
           key={genre.id}
@@ -75,6 +77,15 @@ export default function MovieDetails() {
           </div>
         </div>
       ) : null}
+      The amount of copies: {movie.amount}
+     
+      <Authorized authorized={
+        <div>
+      <Link           className="btn btn-primary btn-sm rounded-pill"
+ to={`/movie/buy/${id}`} >Purchase a DVD</Link>
+      </div>
+      }
+      />
     </div>
   ) : (
     <Loading />

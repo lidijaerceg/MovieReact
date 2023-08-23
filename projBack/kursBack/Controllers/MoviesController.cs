@@ -104,10 +104,13 @@ namespace projBack.Controllers
         [HttpPost]
         public async Task<ActionResult<int>> Post([FromForm] MovieCreationDTO movieCreationDTO)
         {
+
             var movie = mapper.Map<Movie>(movieCreationDTO);
 
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            movie.UserId = userId;
+            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //movie.UserId = userId;
+
+            
 
             if (movieCreationDTO.Poster != null)
             {
@@ -155,11 +158,11 @@ namespace projBack.Controllers
                 return NotFound();
             }
 
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (movie.UserId != userId)
-            {
-                return Forbid(); // Return a 403 Forbidden response if not the owner
-            }
+            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //if (movie.UserId != userId)
+            //{
+            //    return Forbid(); // Return a 403 Forbidden response if not the owner
+            //}
 
             movie = mapper.Map(movieCreationDTO, movie);
 
@@ -185,11 +188,11 @@ namespace projBack.Controllers
                 return NotFound();
             }
 
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if(movie.UserId != userId)
-            {
-                return Forbid();
-            }
+            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //if(movie.UserId != userId)
+            //{
+            //    return Forbid();
+            //}
 
             context.Remove(movie);
             await context.SaveChangesAsync();

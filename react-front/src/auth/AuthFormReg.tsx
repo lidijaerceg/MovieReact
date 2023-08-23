@@ -1,4 +1,4 @@
-import { Form, Formik, FormikHelpers } from "formik";
+import { Field, Form, Formik, FormikHelpers } from "formik";
 import { userCredentials, userCredentialsReg } from "./auth.model";
 import * as Yup from 'yup';
 import TextField from "../forms/TextField";
@@ -30,13 +30,20 @@ export default function AuthFormReg(props: authFormProps){
                     <TextField displayName="Username" field="username"/>
                     <TextField displayName="Email" field="email"/>
                     <TextField displayName="Password" field="password" type="password"/>
+                    Role:
+                    <Field name="role" as="select">
+                        <option value="buyer">Buyer</option>
+                        <option value="salesperson">Salesperson</option>
+                        <option value="admin">Admin</option>
+                    </Field>
+
                     <TextField displayName="Name" field="name"/>
                     <TextField displayName="Lastname" field="lastname"/>
                     <DateField displayName="Date of birth" field="dateOfBirth" />
                     <TextField displayName="Address" field="address"/>
                     <ImageField displayName="Picture" field="picture" 
                     imageURL = {props.model.pictureURL} />
-
+                    
                     <Button disabled={formikProps.isSubmitting} type="submit">Send</Button>
                     <Link className="btn btn-secondary" to="/">Cancel</Link>
                 </Form>

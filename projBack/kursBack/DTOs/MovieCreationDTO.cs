@@ -13,5 +13,7 @@ namespace projBack.DTOs
         [ModelBinder(BinderType = typeof(TypeBinder<List<int>>))]
         public List<int> GenresIds { get; set; }
         public string UserId { get; set; }
+        public int Price { get; set; }
+        public int Amount { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 import { Link, NavLink, useHistory } from "react-router-dom";
 import Authorized from "./auth/Authorized";
 import Button from "./utils/Button";
-import { logout } from "./auth/handleJWT";
+import { getClaims, logout } from "./auth/handleJWT";
 import { useContext } from "react";
 import AuthenticationContext from "./auth/AuthenticationContext";
 import { editUserDTO, userDTO } from "./auth/auth.model";
@@ -11,8 +11,11 @@ export default function Menu() {
 
   const {update, claims} = useContext(AuthenticationContext);
 
+  const token = localStorage.getItem
+
+
   function edit(props: userDTO){
-  const buildLink = () => `/editProfile/${props.id}`;
+   const buildLink = () => `/editProfile/${props.id}`;
   }
   
   const history = useHistory();
@@ -25,6 +28,10 @@ export default function Menu() {
   
   function getUserEmail(): string {
     return claims.filter(x=> x.name === "email")[0]?.value;
+  }
+
+  function getUserId(): string | undefined {
+    return claims.find(x => x.name === 'id')?.value;
   }
 
   return (
@@ -95,7 +102,7 @@ export default function Menu() {
               authorized={
                 <>
                   
-                  <Link to={`/editUser`} className="nav-link">Hello, {getUserEmail()}</Link>
+                  <Link to='/editProfile' className="nav-link">Hello, {getUserEmail()}</Link>
                   <Button className="nav-link btn btn-link" onClick={() =>{
                     logout();
                     handleLogout();

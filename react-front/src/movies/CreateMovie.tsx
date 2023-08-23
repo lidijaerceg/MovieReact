@@ -59,7 +59,7 @@ export default function CreateMovie(){
             <h3>Create Movie</h3>
             <DisplayErrors errors={errors}/>
             {loading ? <Loading /> : 
-                <MovieForm model={{title: '', trailer: ''}} 
+                <MovieForm model={{title: '', trailer: '', price: 0, amount: 0}} 
                 onSubmit={async values=> await create(values)}
                 nonSelectedGenres={nonSelectedGenres}
                 selectedGenres={[]}

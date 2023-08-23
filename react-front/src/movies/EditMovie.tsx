@@ -24,6 +24,8 @@ export default function EditMovie() {
           trailer: response.data.movie.trailer,
           posterURL: response.data.movie.poster,
           summary: response.data.movie.summary,
+          price: response.data.movie.price,
+          amount: response.data.movie.amount
         };
 
         setMovie(model);

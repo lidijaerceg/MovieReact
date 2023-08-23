@@ -36,7 +36,7 @@ export default function MovieForm(props: movieFormProps) {
         props.onSubmit(values, actions);
       }}
       validationSchema={Yup.object({
-        title: Yup.string().required("This ").firstLetterUppercase(),
+        title: Yup.string().required("This field is required").firstLetterUppercase(),
       })}
     >
       {(formikProps) => (
@@ -48,6 +48,9 @@ export default function MovieForm(props: movieFormProps) {
             field="poster"
             imageURL={props.model.posterURL}
           />
+          <TextField displayName="Price" field="price"/>
+          <TextField displayName="Amount" field="amount"/>
+
 
           <MarkdownField displayName="Summary" field="summary" />
 

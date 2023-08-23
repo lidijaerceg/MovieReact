@@ -6,7 +6,10 @@ export function convertProfileToFormData(profile: userCredentialsReg){
 
     formData.append('username', profile.username);
 
-   
+    if (profile.role){
+        formData.append('role', profile.role);
+    }
+
 
     if (profile.picture){
         formData.append('picture', profile.picture);
@@ -28,12 +31,14 @@ export function convertProfileToFormData(profile: userCredentialsReg){
         formData.append('dateOfBirth', formatDate(profile.dateOfBirth));
     }
 
+    return formData;
 }
 
 export function convertMovieToFormData(movie: movieCreationDTO){
     const formData = new FormData();
 
     formData.append('title', movie.title);
+
 
     if (movie.summary){
         formData.append('summary', movie.summary);
@@ -47,6 +52,8 @@ export function convertMovieToFormData(movie: movieCreationDTO){
     }
 
     formData.append('genresIds', JSON.stringify(movie.genresIds));
+    formData.append('amount', movie.amount.toString());
+    formData.append('price', movie.price.toString());
 
     return formData;
 }

@@ -18,7 +18,7 @@ export interface userCredentialsReg{
     address?: string;
     picture?: File;
     pictureURL?: string;
-
+    role?: string;
 }
 
 export interface editUserDTO{
@@ -40,6 +40,11 @@ export interface userDTO{
     lastname?: string;
     dateOfBirth: Date;
     address?: string;
-    picture?: File;
-    pictureURL?: string;
+    pictureURL: string;
+    role?: string;
+}
+
+
+export interface profileDTO{
+    user?: userDTO[];
 }

@@ -27,6 +27,7 @@ export default function EditForm(props: authFormProps){
         >
             {formikProps =>(
                 <Form>
+                    
                     <TextField displayName="Username" field="username"/>
                      {/* <TextField displayName="Email" field="email"/>
                     <TextField displayName="Password" field="password" type="password"/>  */}
@@ -34,8 +35,12 @@ export default function EditForm(props: authFormProps){
                     <TextField displayName="Lastname" field="lastname"/>
                     <DateField displayName="Date of birth" field="dateOfBirth" />
                     <TextField displayName="Address" field="address"/>
-                    <ImageField displayName="Picture" field="picture"  
-                    imageURL = {props.model.pictureURL} />
+                    <ImageField
+                        displayName="Picture"
+                        field="picture"
+                        imageURL={props.model.pictureURL}
+                    />
+                    
 
                     <Button disabled={formikProps.isSubmitting} type="submit">Save changes</Button>
                     <Link className="btn btn-secondary" to="/">Cancel</Link>
