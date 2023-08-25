@@ -33,6 +33,7 @@ namespace projBack
         public DbSet<Movie> Movies { get; set; }
         public DbSet<MoviesGenres> MoviesGenres { get; set; }
         public DbSet<PersonalInformation> PersonalInformation { get; set; }
+        public DbSet<Purchase> Purchases { get; set; }
         //public DbSet<UserCredentialsRegistration> UserCredentialsRegistration { get; set; }
     }
 }

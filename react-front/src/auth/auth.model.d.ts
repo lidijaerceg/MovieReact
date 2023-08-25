@@ -19,6 +19,7 @@ export interface userCredentialsReg{
     picture?: File;
     pictureURL?: string;
     role?: string;
+    confirmPassword?: string;
 }
 
 export interface editUserDTO{

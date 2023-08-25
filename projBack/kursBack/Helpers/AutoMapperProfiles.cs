@@ -19,6 +19,10 @@ namespace projBack.Helpers
             CreateMap<Movie, MovieDTO>()
               .ForMember(x => x.Genres, options => options.MapFrom(MapMoviesGenres));
 
+            CreateMap<Purchase, PurchaseDTO>();
+            CreateMap<PurchaseDTO, Purchase>();
+
+
             CreateMap<IdentityUser, UserDTO>();
 
             CreateMap<PersonalInformation, UserCredentials>()

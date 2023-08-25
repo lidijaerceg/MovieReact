@@ -27,6 +27,10 @@ function App() {
     return claims.findIndex(claim => claim.name === 'role' && claim.value === 'salesperson') > -1;
   }
 
+  function isBuyer(){
+    return claims.findIndex(claim => claim.name === 'role' && claim.value === 'buyer') > -1;
+  }
+
   return (
     <BrowserRouter>
       <AuthenticationContext.Provider value={{ claims, update: setClaims }}>
@@ -39,7 +43,11 @@ function App() {
                   <>You are not allowed to see this page!</>
                 ) : route.isSalesperson && !isSalesperson() ? (
                   <>You are not allowed to see this page!</>
-                ) : (
+                ) : route.isBuyer && !isBuyer() ? (
+                  <>You are not allowed to see this page!</>
+                )
+                
+                : (
                   <route.component />
                 )}
               </Route>

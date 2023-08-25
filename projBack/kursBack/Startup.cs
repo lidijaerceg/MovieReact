@@ -63,6 +63,8 @@ namespace projBack
             {
                 options.AddPolicy("IsAdmin", policy => policy.RequireClaim("role", "admin"));
                 options.AddPolicy("IsSalesperson", policy => policy.RequireClaim("role", "salesperson"));
+                options.AddPolicy("IsBuyer", policy => policy.RequireClaim("role", "buyer"));
+
             });
 
 

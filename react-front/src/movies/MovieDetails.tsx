@@ -79,7 +79,9 @@ export default function MovieDetails() {
       ) : null}
       The amount of copies: {movie.amount}
      
-      <Authorized authorized={
+      <Authorized
+      role="buyer"
+      authorized={
         <div>
       <Link           className="btn btn-primary btn-sm rounded-pill"
  to={`/movie/buy/${id}`} >Purchase a DVD</Link>

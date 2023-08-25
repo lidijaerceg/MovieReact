@@ -95,6 +95,24 @@ namespace MoviesAPI.Controllers
             return NoContent();
         }
 
+        [HttpPost("makeBuyer")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
+        public async Task<ActionResult> MakeBuyer([FromBody] string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            await userManager.AddClaimAsync(user, new Claim("role", "buyer"));
+            return NoContent();
+        }
+
+        [HttpPost("removeBuyer")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
+        public async Task<ActionResult> RemovBuyer([FromBody] string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            await userManager.RemoveClaimAsync(user, new Claim("role", "buyer"));
+            return NoContent();
+        }
+
         [HttpPost("create")]
         public async Task<ActionResult<AuthenticationResponse>> Create(
             [FromBody] UserCredentials userCredentials)
@@ -151,7 +169,7 @@ namespace MoviesAPI.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("{id:int}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<UserCredentials>> GetPersonalInformation(int id)
         {

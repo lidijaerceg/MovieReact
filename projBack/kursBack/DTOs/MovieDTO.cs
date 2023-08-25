@@ -14,5 +14,5 @@ namespace projBack.DTOs
         public string UserId { get; set; }
         public int Price { get; set; }
         public int Amount { get; set; }
-    }
+     }
 }

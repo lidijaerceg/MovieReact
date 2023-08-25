@@ -1,5 +1,5 @@
 import { userCredentialsReg } from '../auth/auth.model';
-import { movieCreationDTO } from '../movies/movies.model';
+import { buyDTO, movieCreationDTO } from '../movies/movies.model';
 
 export function convertProfileToFormData(profile: userCredentialsReg){
     const formData = new FormData();
@@ -58,6 +58,29 @@ export function convertMovieToFormData(movie: movieCreationDTO){
     return formData;
 }
 
+export function convertBuyFormData(purchase: buyDTO){
+    const formData = new FormData();
+
+
+    if (purchase.buyAmount){
+        formData.append('amount', purchase.buyAmount.toString());    
+    }
+
+    if (purchase.comment){
+        formData.append('poster', purchase.comment);
+    }
+
+    if (purchase.finalCost){
+        formData.append('amount', purchase.finalCost.toString());    
+    }
+
+    if (purchase.address){
+        formData.append('poster', purchase.address);
+    }
+
+    return formData;
+
+}
 function formatDate(date: Date){
     date = new Date(date);
     const format = new Intl.DateTimeFormat("en", {

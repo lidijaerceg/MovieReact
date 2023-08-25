@@ -24,6 +24,15 @@ export interface movieCreationDTO{
     amount: number;  
 }
 
+export interface buyDTO{
+    buyAmount?: number;
+    comment: string;
+    address: string;
+    finalCost?: number;
+    id?: number;
+    
+}
+
 export interface landingPageDTO{
     movie?: movieDTO[];
 }

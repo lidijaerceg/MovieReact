@@ -48,6 +48,27 @@ export default function IndexUsers(){
         });
     }
 
+
+    async function makeBuyer(id: string){
+        await doBuyer(`${urlAccounts}/makeBuyer`, id);
+    }
+
+    async function removeBuyer(id: string){
+        await doBuyer(`${urlAccounts}/removeBuyer`, id);
+    }
+
+    async function doBuyer(url: string, id: string){
+        await axios.post(url, JSON.stringify(id), {
+            headers: {'Content-type': 'application/json'}
+        });
+
+        Swal.fire({
+            title: 'Success',
+            text: 'Operation finished correctly',
+            icon: 'success'
+        });
+    }
+
     return(
         <IndexEntity<userDTO>
             title="Users" url={`${urlAccounts}/listUsers`}
@@ -57,6 +78,7 @@ export default function IndexUsers(){
                     <tr>
                         <th></th>
                         <th>Email</th>
+                        <th>Role</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -83,9 +105,20 @@ export default function IndexUsers(){
                                     `Do you wish to remove ${user.email} as an Salesperson?`, 'Do it' )}
                             >Remove Salesperson</Button>
                             </tr>
+
+                            <tr>
+                            <Button
+                                onClick={()=> customConfirm(() => makeBuyer(user.id),
+                                    `Do you wish to make ${user.email} an buyer?`, 'Do it' )}
+                            >Make Buyer</Button>
+                            
+                            </tr>
                         </td>
                         <td>
                             {user.email}
+                        </td>
+                        <td>
+                            {user.role}
                         </td>
                     </tr>)}
                 </tbody>

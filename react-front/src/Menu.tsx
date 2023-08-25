@@ -1,14 +1,26 @@
-import { Link, NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory, useParams } from "react-router-dom";
 import Authorized from "./auth/Authorized";
 import Button from "./utils/Button";
 import { getClaims, logout } from "./auth/handleJWT";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthenticationContext from "./auth/AuthenticationContext";
 import { editUserDTO, userDTO } from "./auth/auth.model";
-
+import axios, { AxiosResponse } from "axios";
+import { urlAccounts } from "./endpoints";
 
 export default function Menu() {
+//   const { id }: any = useParams();
 
+//   const [user, setUser] = useState<userDTO>();
+
+
+// useEffect(() => {
+//   axios
+//     .get(`${urlAccounts}/${id}`)
+//     .then((response: AxiosResponse<userDTO>) => {
+//       setUser(response.data);
+//     });
+// }, [id]);  
   const {update, claims} = useContext(AuthenticationContext);
 
   const token = localStorage.getItem
@@ -38,7 +50,7 @@ export default function Menu() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
-          React Movies
+          Retro DVD store
         </NavLink>
         <div
           className="collapse navbar-collapse"
@@ -73,16 +85,16 @@ export default function Menu() {
                       Genres
                     </NavLink>
                   </li>
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="/actors">
-                      menjaj posle
+                   <li className="nav-item">
+                    <NavLink className="nav-link" to="/purchases">
+                      Purchases 
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  {/*<li className="nav-item">
                     <NavLink className="nav-link" to="/movietheaters">
                       menjaj posle
                     </NavLink>
-                  </li>
+                  </li> */}
                   {/* <li className="nav-item">
                     <NavLink className="nav-link" to="/movies/create">
                       Create a Movie

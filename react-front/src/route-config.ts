@@ -25,7 +25,7 @@ const routes = [
     {path: '/genres/create', component: CreateGenre, isAdmin: true},
     {path: '/genres/edit/:id(\\d+)', component: EditGenre, isAdmin: true},
 
-    {path: '/actors', component: IndexActors, exact: true, isAdmin: true},
+    {path: '/purchases', component: IndexActors, exact: true, isAdmin: true},
     {path: '/actors/create', component: CreateActor, isAdmin: true},
     {path: '/actors/edit/:id(\\d+)', component: EditActor, isAdmin: true},
 
@@ -37,7 +37,7 @@ const routes = [
     {path: '/movies/create', component: CreateMovie, isSalesperson: true},
     {path: '/movies/edit/:id(\\d+)', component: EditMovie,  isSalesperson: true},
     {path: '/movie/:id(\\d+)', component: MovieDetails},
-    {path: '/movie/buy/:id(\\d+)', component: BuyMovie},
+    {path: '/movie/buy/:id(\\d+)', component: BuyMovie, isBuyer: true},
 
     {path: '/register', component: Register},
     {path: '/login', component: Login},
